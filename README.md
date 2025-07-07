@@ -74,7 +74,7 @@ Documentação swagger:
 Java 17+
 Maven 3.8+
 
-▶️ Passos para rodar o projeto
+▶️ Passos para rodar o projeto com maven
 
 # Clone o repositório
 ````bash
@@ -86,6 +86,19 @@ cd seu-repo
 
 # Executar aplicação
 ./mvnw spring-boot:run
+````
+▶️ Passos para rodar o projeto com docker
+✅ Pré-requisitos
+Docker instalado
+
+🛠️ Construa a imagem Docker
+````bash
+# constroi a imagem
+docker build -t credit-simulator-app .
+
+#executa
+docker run -p 8089:8089 credit-simulator-app
+
 ````
 
 🛢️ Banco de dados H2
