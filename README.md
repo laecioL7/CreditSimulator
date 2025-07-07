@@ -17,6 +17,12 @@ API REST desenvolvida com Spring Boot que realiza simulações de crédito (empr
 
 > 💡 Projeto com foco em boas práticas, organização e clareza para fins avaliativos.
 
+## Arquitetura
+Utilizei a Arquitetura de Três Camadas(Three-Layer Architecture) separando a aplicação em:
+- Controller Layer
+- Service Layer
+- Repository Layer
+
 ---
 
 ## 📑 Funcionalidade principal
@@ -59,7 +65,7 @@ O cálculo das parcelas usa a fórmula de juros compostos.
 ---
 
 Documentação swagger:
-http://localhost:8089/swagger-ui.html
+[http://localhost:8089/swagger-ui.html](http://localhost:8089/swagger-ui/index.html)
 
 ---
 
@@ -93,4 +99,15 @@ JDBC URL:jdbc:h2:mem:simulationdb
 Usuário: sa
 Senha: (deixe em branco)
 ````
-
+---
+Curl para testes:
+````bash
+curl --request POST \
+  --url http://localhost:8089/simulation \
+  --header 'Content-Type: application/json' \
+  --header 'User-Agent: insomnia/11.2.0' \
+  --data '{
+	"loanAmount": 1000.0,
+	"clientBirthDate": "1989-06-15",
+	"paymentTermInMonths": 24
+}'
